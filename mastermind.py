@@ -16,11 +16,16 @@
 
 # ----- functions ----- #
 
+def printHeader():
+  print ''
+  print "Welcome to Mastermind. Enter a list of 4 digits:  (e.g. [1,2,3,4])"
+  print '================================================'
+  print''
+
 def getRandomNumber():
   return [1,2,3,4]
 
 def getUserInput():
-  print "Enter some input: "
   userInput = input("Prompt> ")
   print "Type of input is: " + str(type(userInput))
   return userInput
@@ -39,7 +44,7 @@ def evaluateGuess(guess, answer):
   # check if guess is correct -> print success message and exit
   if guess == answer:
     print "Well done. That's right!"
-    sys.exit()  # we should really pause and play a fanfare first but.... the clock is ticking! ;-)
+    sys.exit()
   # else check number of correct digits and almost correct digits -> print progress message
   else:
     # check ... check ...
@@ -71,9 +76,12 @@ if __name__ == "__main__":
   mysteryNumber = getRandomNumber()
   
   userGuess = []
+  limit = range(10)
+
+  printHeader()
   
-  # - FOR(up to 10 times):
-  for i in range(10):
+  # - FOR(up to limit):
+  for i in limit:
     # - prompt user and get user input (as a 4-digit array/list)
     userGuess = getUserInput()
     
