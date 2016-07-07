@@ -18,9 +18,14 @@
 
 def printWelcome():
   print ''
-  print "Welcome to Mastermind. Enter a list of 4 digits:  (e.g. [1,2,3,4])"
+  print "Welcome to Mastermind."
+  print "Enter a list of 4 unique digits between 1 and 4:  (e.g. [1,2,3,4])"
   print '================================================'
   print''
+
+def printFarewell(limit, mysteryNumber):
+  print "Sorry, but you had your " + str(limit) + " guesses. Better luck next time"
+  print "The answer was " + str(mysteryNumber) + "."
 
 def getRandomNumber():
   return [1,2,3,4]
@@ -97,5 +102,4 @@ if __name__ == "__main__":
       print "You have " + str(guessesToGo) + " guesses left."  
 
   # - print failure message; EXIT
-  print "Sorry, but you had your " + str(limit) + " guesses. Better luck next time"
-  print "The answer was " + str(mysteryNumber) + "."
+  printFarewell(limit, mysteryNumber)
