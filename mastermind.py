@@ -3,9 +3,9 @@
 # a Mastermind-style game
 # Author: Howard Smith
 
-# Pseudocode: - generate random 4-digit number (as a 4-digit array/list)
+# Pseudocode: - generate random 4-digit number (as a 4-digit list)
 #             - FOR(up to 10 times):
-#               - prompt user and get user input (as a 4-digit array/list)
+#               - prompt user and get user input (as a 4-digit list)
 #               - validate user input
 #               - evaluate user input
 #                  - IF success:
@@ -45,6 +45,7 @@ def evaluateGuess(guess, answer):
   if guess == answer:
     print "Well done. That's right!"
     print "The right answer WAS " + str(answer) + "!"
+    print "You took " + str(guessesToGo) + "guesses."
     sys.exit()
   # else check number of correct digits and almost correct digits -> print progress message
   else:
@@ -77,8 +78,9 @@ if __name__ == "__main__":
   mysteryNumber = getRandomNumber()
   
   userGuess = []
-  limit = 1
-  seq = range(1)
+  limit = 3 # the number of guesses allowed
+  seq = range(limit)
+  guessesToGo = limit
 
   printWelcome()
   
@@ -86,12 +88,14 @@ if __name__ == "__main__":
   for i in seq:
     # - prompt user and get user input (as a 4-digit array/list)
     userGuess = getUserInput()
+    guessesToGo = guessesToGo - 1
     
     # - validate user input
     if isValidInput(userGuess):
       # - evaluate user input
       evaluateGuess(userGuess, mysteryNumber)
-  
+      print "You have " + str(guessesToGo) + " guesses left."  
+
   # - print failure message; EXIT
   print "Sorry, but you had your " + str(limit) + " guesses. Better luck next time"
   print "The answer was " + str(mysteryNumber) + "."
