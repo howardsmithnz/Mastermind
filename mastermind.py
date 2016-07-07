@@ -20,7 +20,10 @@ def getRandomNumber():
   return [1,2,3,4]
 
 def getUserInput():
-  return [4,2,3,4]
+  print "Enter some input: "
+  userInput = input("Prompt> ")
+  print "Type of input is: " + str(type(userInput))
+  return userInput
 
 def isValidInput(input):
   # do some validation here
