@@ -16,7 +16,7 @@
 
 # ----- functions ----- #
 
-def printHeader():
+def printWelcome():
   print ''
   print "Welcome to Mastermind. Enter a list of 4 digits:  (e.g. [1,2,3,4])"
   print '================================================'
@@ -27,7 +27,7 @@ def getRandomNumber():
 
 def getUserInput():
   userInput = input("Prompt> ")
-  print "Type of input is: " + str(type(userInput))
+  #print "Type of input is: " + str(type(userInput))
   return userInput
 
 def isValidInput(input):
@@ -44,6 +44,7 @@ def evaluateGuess(guess, answer):
   # check if guess is correct -> print success message and exit
   if guess == answer:
     print "Well done. That's right!"
+    print "The right answer WAS " + str(answer) + "!"
     sys.exit()
   # else check number of correct digits and almost correct digits -> print progress message
   else:
@@ -55,8 +56,8 @@ def evaluateGuess(guess, answer):
     # traverse through the guess list and compare to each corresponding digit in the answer list
     #for digit in guess:
     for i in range(len(guess)):
-      print "i is : " + str(i)
-      print "Digit is : "+ str(guess[i])
+      #print "i is : " + str(i)
+      #print "Digit is : "+ str(guess[i])
       if guess[i] == answer[i]:
         correctDigit = correctDigit + 1
       if guess[i] in answer:
@@ -76,12 +77,13 @@ if __name__ == "__main__":
   mysteryNumber = getRandomNumber()
   
   userGuess = []
-  limit = range(10)
+  limit = 1
+  seq = range(1)
 
-  printHeader()
+  printWelcome()
   
   # - FOR(up to limit):
-  for i in limit:
+  for i in seq:
     # - prompt user and get user input (as a 4-digit array/list)
     userGuess = getUserInput()
     
@@ -91,4 +93,5 @@ if __name__ == "__main__":
       evaluateGuess(userGuess, mysteryNumber)
   
   # - print failure message; EXIT
-  print "Sorry, but you had your ten guesses. Better luck next time"
+  print "Sorry, but you had your " + str(limit) + " guesses. Better luck next time"
+  print "The answer was " + str(mysteryNumber) + "."
