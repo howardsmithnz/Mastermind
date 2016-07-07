@@ -44,14 +44,18 @@ def evaluateGuess(guess, answer):
     possibleCorrectDigit = 0   # right digit, position unknown
     almostCorrectDigit = 0     # right digit, wrong position
     
-    for digit in guess:
-      if guess[digit] == answer[digit]:
+    # traverse through the guess list and compare to each corresponding digit in the answer list
+    #for digit in guess:
+    for i in range(len(guess)):
+      print "i is : " + str(i)
+      print "Digit is : "+ str(guess[i])
+      if guess[i] == answer[i]:
         correctDigit = correctDigit + 1
-      if digit in answer:
+      if guess[i] in answer:
         possibleCorrectDigit = possibleCorrectDigit + 1
         
     almostCorrectDigit = possibleCorrectDigit - correctDigit 
-    print "You have " + str(correctDigit) + "correct digits in the right place, and " + str(almostCorrectDigit) +  "correct digits in the wrong place. Keep trying." 
+    print "You have " + str(correctDigit) + " correct digits in the right place, and " + str(almostCorrectDigit) +  " correct digits in the wrong place. Keep trying." 
         
 
 # ----- Main ----- #
