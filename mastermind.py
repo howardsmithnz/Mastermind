@@ -48,9 +48,9 @@ def isValidInput(input):
 
   for item in input:
     if input.count(item) != 1:
-      print "numbers are not unique"
+      print "Numbers are not unique"
       return False
-        
+
   return True
   
 def evaluateGuess(guess, answer):
@@ -58,7 +58,7 @@ def evaluateGuess(guess, answer):
   if guess == answer:
     print "Well done. That's right!"
     print "The right answer WAS " + str(answer) + "!"
-    print "You took " + str(guessesToGo) + "guesses."
+    print "You took " + str(guessesToGo) + " guesses."
     sys.exit()
   # else check number of correct digits and almost correct digits -> print progress message
   else:
