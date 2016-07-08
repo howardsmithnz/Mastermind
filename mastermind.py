@@ -41,9 +41,17 @@ def isValidInput(input):
   if type(input) != list: # we could test for many other kinds of invalid data (e.g. len(input)!= 4) but this is representative! :-)
     print "Ouch! Not a list! You just used up one guess."
     return False
-  # ELSE return True
-  else:
-    return True
+
+  if(len(input) != 4):
+    print "The length is not 4! You just used up one guess."
+    return False
+
+  for item in input:
+    if input.count(item) != 1:
+      print "numbers are not unique"
+      return False
+        
+  return True
   
 def evaluateGuess(guess, answer):
   # check if guess is correct -> print success message and exit
