@@ -50,6 +50,9 @@ def isValidInput(input):
     if input.count(item) != 1:
       print "Numbers are not unique"
       return False
+    if type(item) != int:
+      print "List must contain only numbers"
+      return False
 
   return True
   
