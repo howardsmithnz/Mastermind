@@ -61,7 +61,7 @@ def evaluateGuess(guess, answer):
   if guess == answer:
     print "Well done. That's right!"
     print "The right answer WAS " + str(answer) + "!"
-    print "You took " + str(guessesToGo) + " guesses."
+    print "You took " + str(guessesTaken) + " guesses."
     sys.exit()
   # else check number of correct digits and almost correct digits -> print progress message
   else:
@@ -97,6 +97,7 @@ if __name__ == "__main__":
   limit = 3 # the number of guesses allowed
   seq = range(limit)
   guessesToGo = limit
+  guessesTaken = 0
 
   printWelcome()
   
@@ -105,6 +106,7 @@ if __name__ == "__main__":
     # - prompt user and get user input (as a 4-digit array/list)
     userGuess = getUserInput()
     guessesToGo = guessesToGo - 1
+    guessesTaken = guessesTaken + 1
     
     # - validate user input
     if isValidInput(userGuess):
