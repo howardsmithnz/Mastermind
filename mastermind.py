@@ -28,7 +28,15 @@ def printFarewell(limit, mysteryNumber):
   print "The answer was " + str(mysteryNumber) + "."
 
 def getRandomNumber():
-  return [1,2,3,4]
+  seedList = [1,2,3,4]
+  returnList = []
+  for i in range(0,4):
+    choice = random.choice(seedList)
+    seedList.remove(choice)
+    returnList.append(choice)
+  #return [1,2,3,4]
+  print "return List is " + str(returnList)
+  return returnList
 
 def getUserInput():
   userInput = input("Prompt> ")
@@ -88,7 +96,7 @@ def evaluateGuess(guess, answer):
 
 if __name__ == "__main__":
 
-  import sys
+  import random, sys
 
   # - generate random 4-digit number (as a 4-digit array/list)
   mysteryNumber = getRandomNumber()
