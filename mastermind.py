@@ -34,7 +34,6 @@ def getRandomNumber():
     choice = random.choice(seedList)
     seedList.remove(choice)
     returnList.append(choice)
-  #return [1,2,3,4]
   print "return List is " + str(returnList)
   return returnList
 
