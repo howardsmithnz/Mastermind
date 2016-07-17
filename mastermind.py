@@ -34,7 +34,7 @@ def getRandomNumber():
     choice = random.choice(seedList)
     seedList.remove(choice)
     returnList.append(choice)
-  print "return List is " + str(returnList)
+  # print "return List is " + str(returnList)
   return returnList
 
 def getUserInput():
@@ -101,7 +101,7 @@ if __name__ == "__main__":
   mysteryNumber = getRandomNumber()
   
   userGuess = []
-  limit = 3 # the number of guesses allowed
+  limit = 12 # the number of guesses allowed
   seq = range(limit)
   guessesToGo = limit
   guessesTaken = 0
